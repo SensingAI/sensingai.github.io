@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>    
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>WVD-SZU：Need a dog seeing eye? A Walk Viewpoint Dataset for Freespace Detection in Unstructured Environments</title>
+
+  
+  <link rel="stylesheet" href="https://unmannedlab.github.io//assets/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/research.css">
+  <link rel="canonical" href="https://unmannedlab.github.io//research/RELLIS-3D">
+  <link rel="alternate" type="application/atom+xml" title="Unmanned Systems Lab" href="https://unmannedlab.github.io//feed.xml" />
+
+  <!-- Icons -->
+  <link rel="unmanned_favicon" sizes="32x32" href="https://unmannedlab.github.io//assets/icons/favicon.ico"> 
+  <link rel="shortcut icon" href="https://unmannedlab.github.io//assets/icons/favicon.ico">
+  <link rel="stylesheet" href="/assets/icons/font-awesome/css/font-awesome.min.css">
+  
+</head>
+
+
+<body>
+<style>
+    .title a {
+        text-decoration: none;
+    }
+
+    .topnav-right {
+        float: right;
+        font-size: 24px; 
+        vertical-align:middle; 
+        line-height: 64px;
+        display: none;
+    }
+	body{
+		margin: 10px 225px;
+	}
+
+    #myLinks{
+        display: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .topnav-right {
+            display: inline-block;
+        }
+
+        .nav-large{
+            display:none;
+        }
+    }
+</style>
+
+<script src="/js/menu.js"></script> 
+
+<header class="header" ">
+    <div class="header-container">
+        <div class="title">
+            <a href="/"> <img src="images/logo_03.jpg" width="300" height=86> </a> 
+            <a class="nav-large" href="/about"> About</a>
+            <a class="nav-large" href="/people">People</a>
+            <a class="nav-large" href="/research">Research</a>
+            <div class="topnav-right">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i> </a>
+            </div>
+            <div id="myLinks">
+                <br>
+                <a href="/about">About</a>
+                <a href="/people">People</a>
+                <a href="/research">Research</a>
+            </div>
+        </div> 
+    </div>
+</header>
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="display-4" align="center">Need a dog seeing eye? A Walk Viewpoint Dataset for Freespace Detection in Unstructured Environments</h1>
+    <p class="post-meta" align="center">By: Guoguang Hua</p>
+  </header>
+
+  <article class="post-content">
+    <p align="center">
+<a href="https://www.tamu.edu/"><img src="file:///C|/Users/Administrator/Desktop/website/images/logo_03.jpg" alt="Shenzhen University" height="86" width="300" /></a>&emsp;&emsp;&emsp;&emsp;<a href="https://www.arl.army.mil/"><img src="file:///C|/Users/Administrator/Desktop/website/images/guangdong.jpg" alt="CCDC Army Research Laboratory" height="86" width="654" /></a></p>
+<p align="center">
+Wenbin Zou, Guoguang Hua, Guangxu Chen, Zaiyue He, Guangli Liu, Pengfei Chen, Yuyang Li, Huakun Li, Lei Zheng, Shishun Tian<sup>*</sup><br />
+1. <a href="http://ceie.szu.edu.cn/">Shenzhen University; </a>&emsp;2. <a href="http://iip.szu.edu.cn/">Guangdong KLIIP</a><br />
+<a href="https://unmannedlab.github.io/research/RELLIS-3D">[Website]</a> <a href="https://arxiv.org/abs/">[Paper]</a> <a href="https://github.com/SensingAI/WVD-SZU/">[Github]</a>
+</p>
+
+<h2 id="overview">Overview</h2>
+<p><strong>Freespace Detection</strong> (FD) is crucial for robust and safe autonomous navigation. However, existing datasets usually concentrate on structure road environments. The FD in unstructured environments, e.g., walk assistance for the visually-impaired, has been rarely investigated. In this paper, We propose a novel dataset called the <strong>Walk Viewpoint Dataset (WVD)</strong>. Different from the previous datasets, we focus on the walk viewpoint, where FD can provide the potential for improving the walking of visually impaired people. The target regions of WVD are annotated with <strong>20 categories</strong> by fine-grained labels, which consist of </strong>3,737 images</strong> and depth images. Moreover, we propose a new annotation hierarchy, which allows different degrees of complexity and creates opportunities for new training methods. Finally, our study provides the statistical analysis of label characteristics and baseline analysis, which demonstrates its distinction compared to previous datasets.</p>
+
+<p align="center"><img src="file:///C|/Users/Administrator/Desktop/website/images/Examples_00.jpg" width="925" class="center" /></p>
+
+<h2 id="annotated-data">Annotated Data:</h2>
+<h3 id="ontology">Category:</h3>
+<p>With the goal of providing data to enhance unstructure environment navigation, we defined the WVD dataset. WVD contains diverse categories that can easily be spotted from a walk viewpoint, e.g., pedestrian-area and bike-lane. Visually impaired people who are trailed tend to struggle with walking straight, so they tend to touch the Blind to follow over a straightFor mobile robots, the definitions of safe regions are different, e.g., the sidewalk is higher than the bike-lane, and the bike-lane is higher than the road in safety factors. Overall, 20 categories are present in the data.</p>
+
+<h3 id="images-statics">Images Statics:</h3>
+
+<p align="center"><img src="file:///C|/Users/Administrator/Desktop/website/images/static2_00.jpg" width="855" class="center" /></p>
+
+<h3 id="lidar-scans-statics">Note:</h3>
+<p>(1) Two inset to better visualize some of categories.</p>
+<p>(2)  If you can't access the file, please email every author with the title "WVD-SZU Aceess Request...".</p>
+
+<h2 id="benchmarks">Benchmarks</h2>
+
+<h3 id="image-semantic-segmenation">The MIoU Score of Models at Three Levels</h3>
+<p align="center"><img src="images/Treelevel.jpg" width="485" class="center" /></p>
+
+<h3 id="lidar-semantic-segmenation">Per Categories on The Testing Split</h3>
+<p align="center"><img src="images/percategories.jpg" width="1000" class="center" /></p>
+<p align="center"><img src="images/Results_00.jpg" width="885" class="center" /></p>
+
+
+<h2 id="data-download">Data Download:</h2>
+<p>Link:<a href="https://pan.baidu.com/s/1KsVTrJcD4vilYRi7jVo7Xg">https://pan.baidu.com/s/1KsVTrJcD4vilYRi7jVo7Xg</a></p>
+<p>PassWord: akig </p>
+<p><strong>Note:</strong> This is a part of dataset.</p>
+<h2 id="citation">Citation</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@misc{zou2023wvd,
+      title={Need a dog for seeing eye? A Walk Viewpoint Dataset for Freespace Detection in Unstructured Environments}, 
+      author={Wenbin Zou and Guoguang Hua and Guangxu Chen and Zaiyue He and Guangli Liu and Pengfei Chen and Yuyang Li and Huakun Li and Lei Zheng and Shishun Tian},
+      year={2023},
+      eprint={},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+</code></pre></div></div>
+
+<h2 id="collaborator">Collaborator</h2>
+<p><a href="https://www.arl.army.mil/"><img src="file:///C|/Users/Administrator/Desktop/website/images/SensingAi.png" alt="The DEVCOM Army Research Laboratory" width="358" height="182" class="center" /></a></p>
+
+<h2 id="license">License</h2>
+<p>All datasets and code on this page are copyright by us and published under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.</p>
+
+  </article>
+
+	<div class="ds-thread" data-thread-key=/research/RELLIS-3D data-title=RELLIS-3D: A Multi-modal Dataset for Off-Road Robotics data-url=//research/RELLIS-3D></div>
+
+
+</div>
+
+      </div>
+     
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="container">
+            <div class="section left">
+                &#169; 2023 SensingAI <br>
+                CoLL. of Electronics and Information Engineering <br>
+                Shenzhen University
+            </div>
+            <div class="section centerd">
+                <br>
+                <style>
+    footer a:visited{
+        color: #404040;
+    }
+
+    footer a:hover{
+        color: #303030;
+    }
+</style>
+            </div>
+            <div class="section right">
+                3123 TAMU<br>College Station, TX<br> 77845-3123
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unmannedlab.github.io//js/jquery.slim.min.js"></script>
+<script src="https://unmannedlab.github.io//js/bootstrap.min.js"></script>
+
+</html>
