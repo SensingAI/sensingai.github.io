@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="GCE-Math: Trigonometric Functions">
+    <meta name="author" content="Keith O'Hara">
+
+    <meta name="keywords" content="Bayesian, Macroeconometrics, BMR, Economics, PhD student, NYU, New York University, Econometrics, R, C++, Cpp, Research" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="siteicon.ico">
+
+    <title>GCE-Math: Trigonometric Functions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Additional Settings -->
+    <link href="css/kthohr_settings.css" rel="stylesheet">
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="js/syntaxhighlighter.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/swift_theme.css">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-93902857-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#mynavbar").load("navbar.html")
+            $("#gcemhead").load("gcem_header.html")
+            $("#myfooter").load("footer.html")
+        });
+    </script>
+
+</head>
+
+<style>
+pre {
+    display: inline-block;
+}
+</style>
+
+<body>
+
+    <!-- Navigation -->
+    <div id="mynavbar"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div id="gcemhead"></div>
+
+<!--  -->
+
+<div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">acos</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt acos(const T x)
+</pre>
+
+<p>Computes the inverse cosine function $\text{acos}(x)$ for $x \in [-1,1]$, using</p>
+$$ \text{acos}(x) = \text{atan} \left( \frac{\sqrt{1-x^2}}{x} \right) $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">acosh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt acosh(const T x)
+</pre>
+
+<p>Computes the inverse hyperbolic cosine function $\text{acosh}(x)$ for real-valued $x$, using</p>
+$$ \text{acosh}(x) = \ln \left( x + \sqrt{x^2 - 1} \right)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">asin</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt asin(const T x)
+</pre>
+
+<p>Computes the inverse sine function $\text{asin}(x)$ for $x \in [-1,1]$, using</p>
+$$ \text{asin}(x) = \text{atan} \left( \frac{x}{\sqrt{1-x^2}} \right) $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">asinh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt asinh(const T x)
+</pre>
+
+<p>Computes the inverse hyperbolic sine function $\text{asinh}(x)$ for real-valued $x$, using</p>
+$$ \text{asinh}(x) = \ln \left( x + \sqrt{x^2 + 1} \right)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">atan</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt atan(const T x)
+</pre>
+
+<p>Computes the inverse tangent function $\text{atan}(x)$ for real-valued $x$, using the continued fraction representation</p>
+$$ \text{atan}(x) = \dfrac{x}{1 + \dfrac{x^2}{3 + \dfrac{4x^2}{5 + \dfrac{9x^2}{7 + \ddots}}}} $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">atanh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt atanh(const T x)
+</pre>
+
+<p>Computes the inverse hyperbolic tangent function $\text{atanh}(x)$ for $x \in (-1,1)$, using</p>
+$$ \text{atanh}(x) = \frac{1}{2} \ln \left( \frac{1+x}{1-x} \right)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">cos</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt cos(const T x)
+</pre>
+
+<p>Computes the cosine function $\text{cos}(x)$ for real-valued $x$, using</p>
+$$ \cos(x) = \frac{1-\tan^2(x/2)}{1+\tan^2(x/2)} $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">cosh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt cosh(const T x)
+</pre>
+
+<p>Computes the hyperbolic cosine function $\text{cosh}(x)$ for real-valued $x$, using</p>
+$$ \cosh(x) = \frac{\exp(x) + \exp(-x)}{2}$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">sin</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt sin(const T x)
+</pre>
+
+<p>Computes the sine function $\text{sin}(x)$ for real-valued $x$, using</p>
+$$ \sin(x) = \frac{2\tan(x/2)}{1+\tan^2(x/2)} $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">sinh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt sinh(const T x)
+</pre>
+
+<p>Computes the hyperbolic sine function $\text{sinh}(x)$ for real-valued $x$, using</p>
+$$ \sinh(x) = \frac{\exp(x) - \exp(-x)}{2}$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">tan</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt tan(const T x)
+</pre>
+
+<p>Computes the tangent function $\text{tan}(x)$ for real-valued $x$, using the continued fraction representation</p>
+$$ \tan(x) = \dfrac{x}{1 - \dfrac{x^2}{3 - \dfrac{x^2}{5 - \ddots}}} $$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">tanh</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt tanh(const T x)
+</pre>
+
+<p>Computes the hyperbolic tangent function $\text{tanh}(x)$ for real-valued $x$, using the continued fraction representation</p>
+$$ \tanh(x) = \dfrac{x}{1 + \dfrac{x^2}{3 + \dfrac{x^2}{5 + \dfrac{x^2}{7 + \ddots}}}}$$
+
+    </div>
+    </div>
+    </div>
+
+    <div id="myfooter"></div>
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="GCE-Math: Basic Functions">
+    <meta name="author" content="Keith O'Hara">
+
+    <meta name="keywords" content="Bayesian, Macroeconometrics, BMR, Economics, PhD student, NYU, New York University, Econometrics, R, C++, Cpp, Research" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="siteicon.ico">
+
+    <title>GCE-Math: Basic Functions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Additional Settings -->
+    <link href="css/kthohr_settings.css" rel="stylesheet">
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="js/syntaxhighlighter.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/swift_theme.css">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-93902857-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#mynavbar").load("navbar.html")
+            $("#gcemhead").load("gcem_header.html")
+            $("#myfooter").load("footer.html")
+        });
+    </script>
+
+</head>
+
+<style>
+pre {
+    display: inline-block;
+}
+</style>
+
+<body>
+
+    <!-- Navigation -->
+    <div id="mynavbar"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div id="gcemhead"></div>
+
+<!--  -->
+
+<div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+<hr>
+<!--<p> &nbsp </p>-->
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">abs</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr T abs(const T x)
+</pre>
+
+<p>Computes the absolute value of a real-valued input.</p>
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">exp</strong></h3>
+<!--<p> &nbsp </p>-->
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt exp(const T x)
+</pre>
+
+<p>Computes the exponential function of a real-valued input using a continued fraction representation:</p>
+$$\exp(x) = \dfrac{1}{1-\dfrac{x}{1+x-\dfrac{\frac{1}{2}x}{1 + \frac{1}{2}x - \dfrac{\frac{1}{3}x}{1 + \frac{1}{3}x - \ddots}}}}$$
+<p>The continued fraction argument is split into two parts: $x = n + r$, where $n$ is an integer and $r \in [-0.5,0.5]$.</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">factorial</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr T factorial(const T x)
+</pre>
+
+<p>Computes the factorial value $x!$. When $x$ is an integral type, a simple recursion is used, otherwise <code>factorial(x)</code> $ = \Gamma(x+1)$.</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">log</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt log(const T x)
+</pre>
+
+<p>computes the natural logarithm using a continued fraction expansion representation:</p>
+$$\log\left(\frac{1+x}{1-x}\right) = \dfrac{2x}{1-\dfrac{x^2}{3-\dfrac{4x^2}{5 - \dfrac{9x^3}{7 - \ddots}}}}, \ \ x \in [-1,1]$$
+<p>The continued fraction argument is split into two parts: $x = a \times 10^c$, where $c$ is an integer.</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">max</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr T max(const T x, const T y)
+</pre>
+
+<p>Computes the maximum between $x$ and $y$, where $x$ and $y$ are of the same type (<code>int</code>, <code>double</code>, <code>long double</code>, etc.).</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">min</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr T min(const T x, const T y)
+</pre>
+
+<p>Computes the minimum between $x$ and $y$, where $x$ and $y$ are of the same type (<code>int</code>, <code>double</code>, <code>long double</code>, etc.).</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">pow</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename Ta, typename Tb&gt;
+constexpr return_t&lt;Ta&gt pow(const Ta base, const Tb exp_term)
+</pre>
+
+<p>Computes $x^y$. Recursion is used for the case of integral-valued $y$, otherwise $x^y = \exp(y\log(x))$.</p>
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">sqrt</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt sqrt(const T x)
+</pre>
+
+<p>Computes $\sqrt{x}$ using Newton-Raphson.</p>
+
+
+<!--  -->
+
+    </div>
+    </div>
+    </div>
+
+    <div id="myfooter"></div>
+    
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

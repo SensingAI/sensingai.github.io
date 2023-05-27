@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="GCE-Math: Special Functions">
+    <meta name="author" content="Keith O'Hara">
+
+    <meta name="keywords" content="Bayesian, Macroeconometrics, BMR, Economics, PhD student, NYU, New York University, Econometrics, R, C++, Cpp, Research" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="siteicon.ico">
+
+    <title>GCE-Math: Special Functions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Additional Settings -->
+    <link href="css/kthohr_settings.css" rel="stylesheet">
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="js/syntaxhighlighter.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/swift_theme.css">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-93902857-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#mynavbar").load("navbar.html")
+            $("#gcemhead").load("gcem_header.html")
+            $("#myfooter").load("footer.html")
+        });
+    </script>
+
+</head>
+
+<style>
+pre {
+    display: inline-block;
+}
+</style>
+
+<body>
+
+    <!-- Navigation -->
+    <div id="mynavbar"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div id="gcemhead"></div>
+
+<!--  -->
+
+<div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">beta, lbeta</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt beta(const T a, const T b)
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt lbeta(const T a, const T b)
+</pre>
+
+<p>Computes the beta function:</p> 
+$$\text{B}(\alpha,\beta) := \int_0^1 t^{\alpha - 1} (1-t)^{\beta - 1} dt = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}$$
+<p>The log-beta function <code>lbeta</code> computes $\ln(\text{B}(\alpha,\beta))$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">erf</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt erf(const T x)
+</pre>
+
+<p>Computes the Gaussian error function:</p> 
+$$\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x \exp( - t^2) dt$$
+<p>using a continued fraction representation:
+$$\text{erf}(x) = \frac{2x}{\sqrt{\pi}} \exp(-x^2) \dfrac{1}{1 - 2x^2 + \dfrac{4x^2}{3 - 2x^2 + \dfrac{8x^2}{5 - 2x^2 + \dfrac{12x^2}{7 - 2x^2 + \ddots}}}}$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">erf_inv</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt erf_inv(const T p)
+</pre>
+
+<p>Computes the inverse-Gaussian error function, a value $x$ such that</p> 
+$$f(x) := \text{erf}(x) - p$$
+<p>is equal to zero, for a given $p$. GCE-Math finds this root using Halley's method:</p>
+$$x_{n+1} = x_n - \frac{f(x_n)/f'(x_n)}{1 - 0.5 \frac{f(x_n)}{f'(x_n)} \frac{f''(x_n)}{f'(x_n)} }$$
+<p>where</p>
+$$\frac{\partial}{\partial x} \text{erf}(x) = \exp(-x^2), \ \ \frac{\partial^2}{\partial x^2} \text{erf}(x) = -2x\exp(-x^2)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">lgamma, tgamma</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt lgamma(const T x)
+template&lt;typename T&gt;
+constexpr return_t&lt;T&gt tgamma(const T x)
+</pre>
+
+<p><code>tgamma</code> computes the gamma function</p> 
+$$\Gamma(x) = \int_0^\infty y^{z-1} \exp(-y) dy$$
+<p>using:</p>
+$$\Gamma(x+1) \approx (x+g+0.5)^{x+0.5} \exp(-x-g-0.5) \sqrt{2 \pi} \left[ c_0 + \frac{c_1}{x+1} + \frac{c_2}{x+2} + \cdots + \frac{c_n}{x+n} \right]$$
+<p>where the value $g$ and the coefficients $(c_0, \ldots, c_n)$ are taken from Paul Godfrey's note found <a href="http://my.fit.edu/~gabdo/gamma.txt" target="_blank">here</a>.</p>
+
+<strong>Notation:</strong> <code>lgamma</code> refers to the log-gamma function; <code>tgamma</code> refers to the 'true' gamma function $\Gamma(x)$. This notation is in line with the C++ standard library, and the numerical analysis literature more generally.
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">incomplete_beta</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename eT, typename pT&gt;
+constexpr eT incomplete_beta(const pT a, const pT b, const eT z)
+</pre>
+
+<p>The regularized incomplete beta function:</p> 
+$$\frac{\text{B}(x;\alpha,\beta)}{\text{B}(\alpha,\beta)} = \frac{1}{\text{B}(\alpha,\beta)}\int_0^x t^{a-1} (1-t)^{\beta-1} dt$$
+<p>is computed using a continued fraction representation, found in the Handbook of Continued Fractions for Special Functions, and a modified Lentz method.</p>
+$$\frac{\text{B}(x;\alpha,\beta)}{\text{B}(\alpha,\beta)} = \frac{x^{\alpha} (1-t)^{\beta}}{\alpha \text{B}(\alpha,\beta)} \dfrac{a_1}{1 + \dfrac{a_2}{1 + \dfrac{a_3}{1 + \dfrac{a_4}{1 + \ddots}}}}$$
+<p>where $a_1 = 1$ and</p>
+$$a_{2m+2} = - \frac{(\alpha + m)(\alpha + \beta + m)}{(\alpha + 2m)(\alpha + 2m + 1)}, \ m \geq 0$$
+$$a_{2m+1} = \frac{m(\beta - m)}{(\alpha + 2m - 1)(\alpha + 2m)}, \ m \geq 1$$
+<p>The Lentz method works as follows: let $f_j$ denote the value of the continued fraction up to the first $j$ terms; $f_j$ is updated as follows:</p> 
+$$c_j = 1 + a_j / c_{j-1}$$
+$$d_j = 1 / (1 + a_j d_{j-1})$$
+$$f_j = c_j d_j f_{j-1}$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">incomplete_beta_inv</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename eT, typename pT&gt;
+constexpr eT incomplete_beta_inv(const pT a, const pT b, const eT z)
+</pre>
+
+<p>To compute the inverse of the regularized incomplete beta function, we find the $x$ that sets</p>
+$$f(x) := \frac{\text{B}(x;\alpha,\beta)}{\text{B}(\alpha,\beta)} - p$$
+<p>equal to zero, for a given $(\alpha,\beta,p)$. GCE-Math finds this root using Halley's method:</p>
+$$x_{n+1} = x_n - \frac{f(x_n)/f'(x_n)}{1 - 0.5 \frac{f(x_n)}{f'(x_n)} \frac{f''(x_n)}{f'(x_n)} }$$
+<p>where</p>
+$$\frac{\partial}{\partial x} \left(\frac{\text{B}(x;\alpha,\beta)}{\text{B}(\alpha,\beta)}\right) = \frac{1}{\text{B}(\alpha,\beta)} x^{\alpha-1} (1-x)^{\beta-1}$$
+$$\frac{\partial^2}{\partial x^2} \left(\frac{\text{B}(x;\alpha,\beta)}{\text{B}(\alpha,\beta)}\right) = \frac{1}{\text{B}(\alpha,\beta)} x^{\alpha-1} (1-x)^{\beta-1} \left( \frac{\alpha-1}{x} - \frac{\beta-1}{1 - x} \right)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">incomplete_gamma</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename eT, typename pT&gt;
+constexpr return_t&lt;eT&gt incomplete_gamma(const pT a, const eT z)
+</pre>
+
+<p>The lower incomplete gamma function:</p> 
+$$\gamma(a,x) = \int_0^x t^{a-1} \exp(-t) dt$$
+<p>When $a$ is not too large, the value is computed using the continued fraction representation of the upper incomplete gamma function,</p>
+$$\Gamma(a,x) = \int_x^\infty t^{a-1} \exp(-t) dt,$$
+<p>where</p> 
+$$\frac{\gamma(a,x)}{\Gamma(a)} + \frac{\Gamma(a,x)}{\Gamma(a)} = 1$$
+<p>The continued fraction is given by</p> 
+$$\Gamma(a,x) = \Gamma(a) - \dfrac{x^a\exp(-x)}{a - \dfrac{ax}{a + 1 + \dfrac{x}{a + 2 - \dfrac{(a+1)x}{a + 3 + \dfrac{2x}{a + 4 - \ddots}}}}}$$
+<p>When $a > 10$, 50-point Gauss-Legendre quadrature is employed. The function returns the regularized form: $\gamma(a,x) / \Gamma(a)$.</p> 
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">incomplete_gamma_inv</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename eT, typename pT&gt;
+constexpr eT incomplete_gamma_inv(const pT a, const eT p)
+</pre>
+
+<p>To compute the inverse of the regularized lower incomplete gamma function, we find the $x$ that sets</p>
+$$f(x) := \frac{\gamma(a,x)}{\Gamma(a)} - p$$
+<p>equal to zero, for a given $(a,p)$. GCE-Math finds this root using Halley's method:</p>
+$$x_{n+1} = x_n - \frac{f(x_n)/f'(x_n)}{1 - 0.5 \frac{f(x_n)}{f'(x_n)} \frac{f''(x_n)}{f'(x_n)} }$$
+<p>where</p>
+$$\frac{\partial}{\partial x} \left(\frac{\gamma(a,x)}{\Gamma(a)}\right) = \frac{1}{\Gamma(a)} x^{a-1} \exp(-x)$$
+$$\frac{\partial^2}{\partial x^2} \left(\frac{\gamma(a,x)}{\Gamma(a)}\right) = \frac{1}{\Gamma(a)} x^{a-1} \exp(-x) \left( \frac{a-1}{x} - 1 \right)$$
+
+<!--  -->
+
+<hr>
+
+<h3 style="text-align: left;"><strong style="font-size: 120%;">log_multi_gamma</strong></h3>
+
+<pre class="brush: cpp;"> 
+template&lt;typename eT, typename pT&gt;
+constexpr return_t&lt;eT&gt log_multi_gamma(const pT a, const eT p)
+</pre>
+
+<p>The multivariate gamma function is computed using the recursion:</p> 
+$$\Gamma_p(a) = \pi^{(p-1)/2} \Gamma(a) \Gamma_{p-1}(a-0.5)$$
+<p>where $\Gamma_1(a) = \Gamma(a)$.</p>
+
+    </div>
+    </div>
+    </div>
+
+    <div id="myfooter"></div>
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
