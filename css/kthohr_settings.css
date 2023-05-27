@@ -1,0 +1,210 @@
+/*!
+ * Additional CSS for kthohr.com
+ */
+
+h3:target 
+{
+    padding-top: 60px; 
+    margin-top: -60px;
+}
+
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "|\00a0";
+}
+
+/* custom colors */
+
+.navbar-custom {
+    background-color:#262A31;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#ddd;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #262A31;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    /* background-color:#eeeeee; */
+    background-color:#262A31;
+}
+.navbar-custom .icon-bar {
+    background-color:#262A31;
+}
+
+/* floating footer below */
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 70px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+  
+  
+  /* body > .container {
+    padding: 60px 15px 0;
+  } */
+
+.container-fluid .text-muted {
+    margin: 20px 0;
+}
+
+.container-fluid .text-muted2 {
+    margin: 13px 0;
+}
+
+  .footer > .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .container .text-muted {
+    margin: 20px 0;
+  }
+  
+  .footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  code {
+    font-size: 80%;
+  }
+
+
+/* move navbar inwards (left and right) */
+
+/* .navbar-custom .navbar-left {
+    padding-left: 10px;
+}
+
+.navbar-custom .navbar-right {
+    padding-right: 10px;
+} */
+
+/* 2C2F36 */
+
+/*
+<style>
+pre {
+    display: inline-block;
+}
+</style>
+*/
+/*
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+ga('create', 'UA-93902857-1', 'auto');
+ga('send', 'pageview');
+*/
+
+
+/* dropdown menu */
+/* https://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+/* image opacity */  
+
+.img, .img2, .img3 {
+    opacity: 1;
+}
+
+.img2 {
+    opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+
+.img2:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+.img3 {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.img3:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
